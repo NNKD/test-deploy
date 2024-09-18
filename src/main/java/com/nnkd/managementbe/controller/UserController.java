@@ -26,7 +26,7 @@ public class UserController {
     AuthenticationService authenticationService;
     ProjectResponseService projectResponseService;
 
-    @GetMapping
+    @GetMapping("/getUsers")
     public ApiResponse<List<User>> getAllUsers() {
         ApiResponse<List<User>> apiResponse = new ApiResponse<>();
         apiResponse.setResult(userService.getAllUsers());
