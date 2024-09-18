@@ -1,6 +1,10 @@
 # Build stage
-FROM maven:3.9.0-openjdk-17 AS build
+FROM openjdk:21-jdk AS build
 WORKDIR /app
+
+# Cài đặt Maven
+RUN apt-get update && \
+    apt-get install -y maven
 
 # Sao chép mã nguồn vào container
 COPY . .
