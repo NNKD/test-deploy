@@ -13,7 +13,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Run stage
-FROM openjdk:21-jdk-slim
+FROM openjdk:21-jdk
 WORKDIR /app
 
 # Sao chép file JAR từ build stage vào container
