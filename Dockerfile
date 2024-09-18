@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.9.0-openjdk-21 AS build
+FROM maven:3.9.0-openjdk-17 AS build
 WORKDIR /app
 
 # Sao chép mã nguồn vào container
@@ -12,9 +12,9 @@ RUN mvn clean package -DskipTests
 FROM openjdk:21-jdk-slim
 WORKDIR /app
 
-# Sao chép file WAR từ build stage vào container
-COPY --from=build /app/target/DrComputer-0.0.1-SNAPSHOT.war drcomputer.war
+# Sao chép file JAR từ build stage vào container
+COPY --from=build /app/target/ManagementBE-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080 
 
 # Chạy ứng dụng
-ENTRYPOINT ["java", "-jar", "drcomputer.war"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
