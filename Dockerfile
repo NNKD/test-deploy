@@ -4,10 +4,10 @@ FROM openjdk:21-jdk-slim
 # Đặt thư mục làm việc
 WORKDIR /app
 
-# Sao chép file JAR được build từ ứng dụng vào container
+# Sao chép file JAR đã build từ thư mục target vào container
 COPY target/ManagementBE-0.0.1-SNAPSHOT.jar app.jar
 
-# Mở cổng ứng dụng (nếu cần, Render.com tự động gán cổng)
+# Mở cổng ứng dụng (Render.com tự động gán cổng)
 EXPOSE 8080
 
 # Chạy ứng dụng
