@@ -138,7 +138,7 @@ public class UserService {
 
     public String generateAvatar(String username) {
         String firstLetter = username.substring(0, 1);
-        return "https://ui-avatars.com/api/?name="+firstLetter+"&background=random&rounded=true&bold=true";
+        return "https://ui-avatars.com/api/?name="+firstLetter+"&background=random";
     }
 
 
